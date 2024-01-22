@@ -14,3 +14,11 @@ table, tr, td {
 td {
     padding: 30px;
 }
+
+#all-list-items{
+    text-align: center;
+}
+
+#add-items-section{
+    text-align: center;
+}
