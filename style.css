@@ -1,3 +1,7 @@
+body {
+    background-color: gray;
+}
+
 h1 {
     text-align: center;
 }
@@ -13,6 +17,18 @@ table, tr, td {
 
 td {
     padding: 30px;
+}
+
+.row-label {
+    background-color: rgb(255, 255, 255);
+}
+
+.row-items {
+    background-color: rgb(68, 68, 68);
+}
+
+.row-options {
+    background-color: black;
 }
 
 #add-items-section{
