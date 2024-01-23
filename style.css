@@ -6,6 +6,8 @@ h1 {
     text-align: center;
 }
 
+
+
 table {
     margin: auto;
 }
@@ -21,6 +23,17 @@ td {
 
 .row-label {
     background-color: rgb(255, 255, 255);
+    padding: 10px;
+}
+
+.row-label > textarea {
+    border: none;
+    background-color: inherit;
+    resize: none;
+    overflow: hidden;
+    min-height: 10px;
+    max-height: 300px;
+    text-align: center;
 }
 
 .row-items {
@@ -30,6 +43,9 @@ td {
 .row-options {
     background-color: black;
 }
+
+
+
 
 #add-items-section{
     text-align: center;
