@@ -18,3 +18,17 @@ td {
 #add-items-section{
     text-align: center;
 }
+
+#all-list-items{
+    display: flex;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.list-item{
+    height: 100px;
+    width: 100px;
+}
