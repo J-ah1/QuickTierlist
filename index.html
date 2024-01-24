@@ -12,6 +12,7 @@
         <div id="modal-content">
             <span id="modal-close-button" onclick="closeModal()">&times;</span>
             <p>Some text in the Modal..</p>
+            <input id="file-uploader" type="file" onchange="uploadImage()" accept="image/*"/>
         </div>
     </div>
     <h1>Quick Tierlist Maker</h1>
@@ -47,7 +48,7 @@
         </tr>
     </table>
     <h2>items go below here</h2>
-    <div id="all-list-items">
+    <div id="unlisted-list-items">
         <div class="list-item"><img src="images/leaf.jpg" alt="leaf"></div>
         <div class="list-item"><img src="images/maple leaf.jpg" alt="maple leaf"></div>
         <div class="list-item"><img src="images/pine leaf.jpg" alt="pine leaf"></div>
