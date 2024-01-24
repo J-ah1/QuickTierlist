@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Title</title>
 </head>
 <body>
+    <div id="create-item-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
     <h1>Quick Tierlist Maker</h1>
     <table>
         <tr>
@@ -46,7 +52,7 @@
         <div class="list-item"><img src="images/maple leaf.jpg" alt="maple leaf"></div>
         <div class="list-item"><img src="images/pine leaf.jpg" alt="pine leaf"></div>
     </div>
-    <div id="add-items-section">
+    <div id="add-items-section" onclick="openModal()">
         <button>Add Item</button>
     </div>
 </body>
