@@ -90,7 +90,7 @@ td {
     text-align: center;
 }
 
-#all-list-items{
+#unlisted-list-items{
     display: flex;
 }
 
@@ -102,4 +102,5 @@ img {
 .list-item{
     height: 100px;
     width: 100px;
+    background-color: black;
 }
