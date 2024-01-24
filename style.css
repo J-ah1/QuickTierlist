@@ -60,7 +60,7 @@ td {
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+#modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -68,15 +68,15 @@ td {
     width: 80%;
 }
 
-.close {
+#modal-close-button {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+#modal-close-button:hover,
+#modal-close-button:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
