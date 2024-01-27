@@ -15,6 +15,30 @@ function closeModal(){
     createItemModal.style.display = "none";
 }
 
+
+// What happens when dragging?
+// Regardless may want to use this somewhere: "DataTransfer.setDragImage()"
+function previewDrop(ev){
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    // Check whether the element being dragged is the item div
+    // or a child of the div, setting the "id to move later" to the item div
+    if (ev.target.classList.contains("list-item")){
+        ev.dataTransfer.setData("itemDivId", ev.target.id);
+    }else if(ev.target.parentNode.classList.contains("list-item")){
+        ev.dataTransfer.setData("itemDivId", ev.target.parentNode.id);
+    }
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("itemDivId");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+
 function uploadImage(){
     console.log("do upload here");
     const image = fileUploadInput.files[0];
