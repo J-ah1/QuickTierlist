@@ -40,6 +40,7 @@ td {
     text-align: center;
 }
 .row-items {
+    display: flex;
     background-color: rgb(68, 68, 68);
 }
 .row-options {
