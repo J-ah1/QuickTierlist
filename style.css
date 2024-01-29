@@ -1,22 +1,27 @@
+/*
+Doc Wide CSS
+*/
 body {
     background-color: gray;
 }
-
 h1 {
     text-align: center;
 }
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
 
-
-
+/*
+Tier list relevant CSS
+*/
 table {
     margin: auto;
 }
-
 table, tr, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
-
 td {
     padding: 30px;
 }
@@ -25,7 +30,6 @@ td {
     background-color: rgb(255, 255, 255);
     padding: 10px;
 }
-
 .row-label > textarea {
     border: none;
     background-color: inherit;
@@ -35,18 +39,16 @@ td {
     max-height: 300px;
     text-align: center;
 }
-
 .row-items {
     background-color: rgb(68, 68, 68);
 }
-
 .row-options {
     background-color: black;
 }
 
-
-
-
+/*
+Modal relevant CSS
+*/
 #create-item-modal {
     display: none;
     position: fixed;
@@ -59,7 +61,6 @@ td {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
-
 #modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -67,14 +68,12 @@ td {
     border: 1px solid #888;
     width: 80%;
 }
-
 #modal-close-button {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-
 #modal-close-button:hover,
 #modal-close-button:focus {
     color: black;
@@ -82,10 +81,9 @@ td {
     cursor: pointer;
 }
 
-
-
-
-
+/*
+List items relevant CSS
+*/
 #add-items-section{
     text-align: center;
 }
@@ -94,12 +92,6 @@ td {
     display: flex;
     background-color: rgb(68, 68, 68);
 }
-
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
 .list-item{
     height: 100px;
     width: 100px;
