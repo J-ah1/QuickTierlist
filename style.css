@@ -92,6 +92,7 @@ td {
 
 #unlisted-list-items{
     display: flex;
+    background-color: rgb(68, 68, 68);
 }
 
 img {
