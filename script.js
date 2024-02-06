@@ -58,14 +58,8 @@ Dragging Functions
 function previewDrop(ev){
     ev.preventDefault();
 }
-function drag(ev) {
-    // Check whether the element being dragged is the item div
-    // or a child of the div, setting the "id to move later" to the item div
-    if (ev.target.classList.contains("list-item")){
-        ev.dataTransfer.setData("itemDivId", ev.target.id);
-    }else if(ev.target.parentNode.classList.contains("list-item")){
-        ev.dataTransfer.setData("itemDivId", ev.target.parentNode.id);
-    }
+function drag(ev, el) {
+    ev.dataTransfer.setData("itemDivId", el.id);
 }
 function drop(ev, el) {
     ev.preventDefault();
