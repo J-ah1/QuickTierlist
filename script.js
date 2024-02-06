@@ -67,12 +67,11 @@ function drag(ev) {
         ev.dataTransfer.setData("itemDivId", ev.target.parentNode.id);
     }
 }
-function drop(ev) {
+function drop(ev, el) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("itemDivId");
-    ev.target.appendChild(document.getElementById(data));
+    el.appendChild(document.getElementById(data));
 }
-
 
 /*
 Doc Setup Functions
