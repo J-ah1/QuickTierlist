@@ -30,17 +30,17 @@ td {
 }
 
 .row-label {
-    background-color: rgb(255, 255, 255);
     padding: 10px;
+    background-color: rgb(255, 255, 255);
 }
 .row-label > textarea {
-    border: none;
-    background-color: inherit;
     resize: none;
     overflow: hidden;
+    border: none;
     min-height: 10px;
     max-height: 300px;
     text-align: center;
+    background-color: inherit;
 }
 .row-items {
     display: flex;
@@ -54,9 +54,9 @@ td {
 Modal relevant CSS
 */
 #create-item-modal {
-    display: none;
     position: fixed;
     z-index: 1;
+    display: none;
     left: 0;
     top: 0;
     width: 100%;
@@ -66,23 +66,23 @@ Modal relevant CSS
     background-color: rgba(0,0,0,0.4);
 }
 #modal-content {
-    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    background-color: #fefefe;
 }
 #modal-close-button {
-    color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    color: #aaa;
 }
 #modal-close-button:hover,
 #modal-close-button:focus {
-    color: black;
-    text-decoration: none;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 /*
