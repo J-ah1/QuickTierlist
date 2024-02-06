@@ -39,9 +39,18 @@ function uploadImage(){
         createListItem(fileReaderEvent.target.result);
     }
 }
+
+// NTS: Create a better way of generating ids or get rid of them
+var reallyTempId = 50;
 function createListItem(imageUrl){
     const imageDiv = document.createElement("div");
     imageDiv.setAttribute("class", "list-item");
+    imageDiv.setAttribute("id", reallyTempId.toString());
+    reallyTempId += 1;
+    imageDiv.setAttribute("draggable", true);
+    imageDiv.ondragstart = function() {
+        drag(event, imageDiv);
+    }
     const imageNode = document.createElement("img");
     imageNode.setAttribute("src", imageUrl);
     imageDiv.appendChild(imageNode)
