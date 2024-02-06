@@ -1,6 +1,9 @@
 /*
 Doc Wide CSS
 */
+:root {
+    --list-item-height: 100px;
+}
 body {
     background-color: gray;
 }
@@ -89,12 +92,14 @@ List items relevant CSS
     text-align: center;
 }
 
+
 #unlisted-list-items{
+    min-height: var(--list-item-height);
     display: flex;
     background-color: rgb(68, 68, 68);
 }
 .list-item{
-    height: 100px;
+    height: var(--list-item-height);
     width: 100px;
     background-color: black;
 }
