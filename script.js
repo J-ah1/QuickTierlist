@@ -4,6 +4,7 @@ Global Variables
 var theCreateItemModal = document.getElementById("create-item-modal");
 var fileUploadInput = document.getElementById("file-uploader");
 var unlistedListItems = document.getElementById("unlisted-list-items")
+var nextItemId = 1; // NTS: Does NOT correlate to num of items
 
 /*
 Tier List Functions
@@ -39,14 +40,14 @@ function uploadImage(){
         createListItem(fileReaderEvent.target.result);
     }
 }
-
-// NTS: Create a better way of generating ids or get rid of them
-var reallyTempId = 50;
 function createListItem(imageUrl){
+    if (nextItemId == Number.MAX_SAFE_INTEGER){
+        throw new Error("idk how but you've made an insurmountable amount of items. restart the page");
+    }
     const imageDiv = document.createElement("div");
     imageDiv.setAttribute("class", "list-item");
-    imageDiv.setAttribute("id", reallyTempId.toString());
-    reallyTempId += 1;
+    imageDiv.setAttribute("id", "item-" + nextItemId.toString());
+    nextItemId += 1;
     imageDiv.setAttribute("draggable", true);
     imageDiv.ondragstart = function() {
         drag(event, imageDiv);
