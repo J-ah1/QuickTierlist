@@ -24,18 +24,21 @@ function closeModal(){
     theCreateItemModal.style.display = "none";
 }
 function uploadImage(){
-    console.log("do upload here");
-    const image = fileUploadInput.files[0];
-
-    if (!image.type.includes('image')) {
+    console.log(fileUploadInput.files);
+    for (let file of fileUploadInput.files){
+        readImageFile(file);
+    }
+}
+function readImageFile(file){
+    if (!file.type.includes('image')) {
         return alert('Only images are allowed!');
     }
-    if (image.size > 10_000_000) {
+    if (file.size > 10_000_000) {
         return alert('Maximum upload size is 10MB!');
     }
 
     const fileReader = new FileReader();
-    fileReader.readAsDataURL(image);
+    fileReader.readAsDataURL(file);
     fileReader.onload = (fileReaderEvent) => {
         createListItem(fileReaderEvent.target.result);
     }
