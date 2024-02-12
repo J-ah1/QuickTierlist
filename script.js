@@ -43,6 +43,20 @@ function readImageFile(file){
         createListItem(fileReaderEvent.target.result);
     }
 }
+function createImageFromText(el){
+    const canvasText = el.value;
+    const tempCanvas = document.createElement("canvas");
+    const tempContext = tempCanvas.getContext("2d");
+    tempCanvas.width = 100;
+    tempCanvas.height = 100;
+    tempContext.fillStyle = "white";
+    tempContext.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+    tempContext.fillStyle = "black";
+    tempContext.font = "48px serif";
+    tempContext.textBaseline = 'middle';
+    tempContext.fillText(canvasText, 0, tempCanvas.height/2, 100);
+    createListItem(tempContext.canvas.toDataURL());
+}
 function createListItem(imageUrl){
     if (nextItemId == Number.MAX_SAFE_INTEGER){
         throw new Error("idk how but you've made an insurmountable amount of items. restart the page");
