@@ -3,6 +3,7 @@ Global Variables
 */
 var theCreateItemModal = document.getElementById("create-item-modal");
 var fileUploadInput = document.getElementById("file-uploader");
+var createItemFromTextfield = document.getElementById("create-item-from-text-field");
 var unlistedListItems = document.getElementById("unlisted-list-items")
 var nextItemId = 1; // NTS: Does NOT correlate to num of items
 
@@ -43,8 +44,9 @@ function readImageFile(file){
         createListItem(fileReaderEvent.target.result);
     }
 }
-function createImageFromText(el){
-    const canvasText = el.value;
+// Create a list-item image from the "createItemFromTextfield" value
+function createImageFromText(){
+    const canvasText = createItemFromTextfield.value;
     const tempCanvas = document.createElement("canvas");
     const tempContext = tempCanvas.getContext("2d");
     tempCanvas.width = 100;
@@ -103,3 +105,10 @@ window.onclick = function(event){
         closeModal();
     }
 }
+// Pressing enter on createItemFromTextfield triggers "submit" button onclick()
+createItemFromTextfield.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("create-item-from-text-button").click();
+    }
+});
