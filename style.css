@@ -88,13 +88,20 @@ Modal relevant CSS
 /*
 List items relevant CSS
 */
-#add-items-section{
-    text-align: center;
-}
+
 #unlisted-list-items{
     min-height: var(--list-item-height);
     display: flex;
     background-color: rgb(68, 68, 68);
+}
+#garbage-section{
+    font-size: 24px;
+    height: 100px;
+    width: 300px;
+    background-color: #ce8c55;
+}
+#add-items-section{
+    text-align: center;
 }
 .list-item{
     height: var(--list-item-height);

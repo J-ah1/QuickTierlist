@@ -55,6 +55,7 @@
         <div class="list-item" id="tempId2" draggable="true" ondragstart="drag(event, this)"><img src="images/maple leaf.jpg" alt="maple leaf"></div>
         <div class="list-item" id="tempId3" draggable="true" ondragstart="drag(event, this)"><img src="images/pine leaf.jpg" alt="pine leaf"></div>
     </div>
+    <div id="garbage-section" ondragover="previewDrop(event)" ondrop="discardItem(event)">Drop Here to Delete</div>
     <div id="add-items-section" onclick="openModal()">
         <button>Add Item</button>
     </div>

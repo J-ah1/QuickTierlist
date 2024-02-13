@@ -82,7 +82,7 @@ function createListItem(imageUrl){
 /*
 Dragging Functions
 */
-// What happens when dragging?
+// What happens when dragging? (need previewDrop to preventDefault for all dragging btw)
 // Regardless may want to use this somewhere: "DataTransfer.setDragImage()"
 function previewDrop(ev){
     ev.preventDefault();
@@ -94,6 +94,10 @@ function drop(ev, el) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("itemDivId");
     el.appendChild(document.getElementById(data));
+}
+function discardItem(ev) {
+    var itemToDelete = document.getElementById(ev.dataTransfer.getData("itemDivId"));
+    itemToDelete.parentNode.removeChild(itemToDelete);
 }
 
 /*
