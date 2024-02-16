@@ -2,6 +2,7 @@
 Global Variables
 */
 var theCreateItemModal = document.getElementById("create-item-modal");
+var theRowOptionsModal = document.getElementById("row-options-modal");
 var fileUploadInput = document.getElementById("file-uploader");
 var createItemFromTextfield = document.getElementById("create-item-from-text-field");
 var unlistedListItems = document.getElementById("unlisted-list-items")
@@ -18,11 +19,15 @@ function autoGrow(element) {
 /*
 Modal Functions
 */
-function openModal(){
+function openCreateItemModal(){
     theCreateItemModal.style.display = "block";
+}
+function openRowOptionsModal(rowId){
+    theRowOptionsModal.style.display = "block";
 }
 function closeModal(){
     theCreateItemModal.style.display = "none";
+    theRowOptionsModal.style.display = "none";
 }
 function uploadImage(){
     console.log(fileUploadInput.files);
@@ -105,7 +110,7 @@ Doc Setup Functions
 */
 // Clicking outside an open modal, closes the modal
 window.onclick = function(event){
-    if(event.target == theCreateItemModal){
+    if(event.target == theCreateItemModal || event.target == theRowOptionsModal){
         closeModal();
     }
 }

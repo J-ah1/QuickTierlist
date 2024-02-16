@@ -17,6 +17,15 @@
             <input type="button" id="create-item-from-text-button" onclick="createImageFromText()" value="Submit"/>
         </div>
     </div>
+    <div id="row-options-modal">
+        <div id="modal-content">
+            <span id="modal-close-button" onclick="closeModal()">&times;</span>
+            <p>Some text in the Modal..</p>
+            <input type="button" value="Add Row Above"/>
+            <input type="button" value="Add Row Below"/>
+            <input type="button" value="Delete Row"/>
+        </div>
+    </div>
     <h1>Quick Tierlist Maker</h1>
     <table>
         <tr>
@@ -25,9 +34,7 @@
             </td>
             <td class="row-items" ondragover="previewDrop(event)" ondrop="drop(event, this)"></td>
             <td class="row-options">
-                <button>
-                    Options
-                </button>
+                <button onclick="openRowOptionsModal(1)">Options</button>
             </td>
         </tr>
         <tr>
@@ -36,7 +43,7 @@
             </td>
             <td class="row-items" ondragover="previewDrop(event)" ondrop="drop(event, this)"></td>
             <td class="row-options">
-                <button>Options</button>
+                <button onclick="openRowOptionsModal(2)">Options</button>
             </td>
         </tr>
         <tr>
@@ -45,7 +52,7 @@
             </td>
             <td class="row-items" ondragover="previewDrop(event)" ondrop="drop(event, this)"></td>
             <td class="row-options">
-                <button>Options</button>
+                <button onclick="openRowOptionsModal(1)">Options</button>
             </td>
         </tr>
     </table>
@@ -56,7 +63,7 @@
         <div class="list-item" id="tempId3" draggable="true" ondragstart="drag(event, this)"><img src="images/pine leaf.jpg" alt="pine leaf"></div>
     </div>
     <div id="garbage-section" ondragover="previewDrop(event)" ondrop="discardItem(event)">Drop Here to Delete</div>
-    <div id="add-items-section" onclick="openModal()">
+    <div id="add-items-section" onclick="openCreateItemModal()">
         <button>Add Item</button>
     </div>
 </body>
