@@ -87,18 +87,31 @@ function createListItem(imageUrl){
 /*
 Dragging Functions
 */
-// What happens when dragging? (need previewDrop to preventDefault for all dragging btw)
-// Regardless may want to use this somewhere: "DataTransfer.setDragImage()"
-function previewDrop(ev){
+
+var dragEl = null;
+var dragElNextParent = null;
+var dragElNextIdx = 0;
+
+function previewDrop(ev, el){
     ev.preventDefault();
+    let mouseX = ev.clientX;
+    let elX = el.getBoundingClientRect().x;
+    console.log(mouseX - elX);
+    if(dragEl.parentNode != el || dragElNextIdx != Array.prototype.indexOf.call(el.children, dragEl)){
+        el.appendChild(dragEl);
+        dragElNextParent = el;
+        dragElNextIdx = Array.prototype.indexOf.call(el.children, dragEl);
+    }
+
 }
 function drag(ev, el) {
-    ev.dataTransfer.setData("itemDivId", el.id);
+    dragEl = el;
+    dragElNextParent = el.parentNode;
+    dragElNextIdx = Array.prototype.indexOf.call(dragElNextParent.children, el);
 }
 function drop(ev, el) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("itemDivId");
-    el.appendChild(document.getElementById(data));
+    dragEl = null;
 }
 function discardItem(ev) {
     var itemToDelete = document.getElementById(ev.dataTransfer.getData("itemDivId"));
