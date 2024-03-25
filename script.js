@@ -93,6 +93,7 @@ var dragElNextParent = null;
 var dragElNextIdx = 0;
 
 function previewDrop(ev, el){
+    if(dragEl == null) return;
     ev.preventDefault();
     let mouseX = ev.clientX;
     let elX = el.getBoundingClientRect().x;
