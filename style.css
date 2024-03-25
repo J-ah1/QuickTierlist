@@ -22,8 +22,12 @@ table {
     margin: auto;
 }
 table, tr, td {
+    height: 100%;
     border: 1px solid black;
     border-collapse: collapse;
+}
+tr {
+    height: var(--list-item-height);
 }
 td {
     padding: 30px;
@@ -44,6 +48,9 @@ td {
 }
 .row-items {
     display: flex;
+    min-width: 600px;
+    height: 100%;
+    padding: 0;
     background-color: rgb(68, 68, 68);
 }
 .row-options {

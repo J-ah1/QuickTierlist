@@ -14,6 +14,7 @@ Tier List Functions
 function autoGrow(element) {
     element.style.height = "5px";
     element.style.height = (element.scrollHeight) + "px";
+    // Future note: should update every (var(--list-item-height)) instead
 }
 
 /*
