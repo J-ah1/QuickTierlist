@@ -114,8 +114,8 @@ function drop(ev, el) {
     dragEl = null;
 }
 function discardItem(ev) {
-    var itemToDelete = document.getElementById(ev.dataTransfer.getData("itemDivId"));
-    itemToDelete.parentNode.removeChild(itemToDelete);
+    dragEl.remove();
+    dragEl = null;
 }
 
 /*
