@@ -95,12 +95,16 @@ var rowColorPicker = document.getElementById("row-color-picker");
 var selectedRowEl = null;
 function openRowOptionsModal(el){
     selectedRowEl = el.parentNode.parentNode;
-    rowColorPicker.value = rgb2hex(selectedRowEl.querySelector('.row-label').style.backgroundColor);
+    rowColorPicker.value = rgb2hex(selectedRowEl.querySelector(".row-label").style.backgroundColor);
     theRowOptionsModal.style.display = "block";
 }
 function deleteRow(){
     selectedRowEl.remove();
     closeModal();
+}
+function updateColor(ev){
+    if(selectedRowEl == null) return;
+    selectedRowEl.querySelector(".row-label").style.backgroundColor = ev.target.value;
 }
 
 
