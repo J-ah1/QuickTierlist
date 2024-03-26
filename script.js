@@ -31,7 +31,6 @@ function closeModal(){
     theRowOptionsModal.style.display = "none";
 }
 function uploadImage(){
-    console.log(fileUploadInput.files);
     for (let file of fileUploadInput.files){
         readImageFile(file);
     }
@@ -98,21 +97,26 @@ function previewDrop(ev, el){
     ev.preventDefault();
     let mouseX = ev.clientX;
     let elX = el.getBoundingClientRect().x;
-    console.log(mouseX - elX);
-    if(dragEl.parentNode != el || dragElNextIdx != Array.prototype.indexOf.call(el.children, dragEl)){
-        el.appendChild(dragEl);
+    let idxInParent = Math.floor((mouseX - elX) / 100);
+    if(dragEl.parentNode != el || dragElNextIdx != idxInParent){
+        if(idxInParent >= el.children.length){
+            el.appendChild(dragEl);
+        }else{
+            el.insertBefore(dragEl, el.children[idxInParent]);
+        }
         dragElNextParent = el;
-        dragElNextIdx = Array.prototype.indexOf.call(el.children, dragEl);
+        dragElNextIdx = idxInParent;
     }
-
 }
 function drag(ev, el) {
     dragEl = el;
+    dragEl.classList.add("dragging");
     dragElNextParent = el.parentNode;
     dragElNextIdx = Array.prototype.indexOf.call(dragElNextParent.children, el);
 }
 function drop(ev, el) {
     ev.preventDefault();
+    dragEl.classList.remove("dragging");
     dragEl = null;
 }
 function discardItem(ev) {

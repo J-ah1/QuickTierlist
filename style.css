@@ -127,3 +127,6 @@ List items relevant CSS
     width: 100px;
     background-color: black;
 }
+.dragging{
+    opacity: 0.6;
+}
