@@ -100,7 +100,7 @@ function previewDrop(ev, el){
     ev.preventDefault();
     let mouseX = ev.clientX;
     let elX = el.getBoundingClientRect().x;
-    let idxInParent = Math.floor((mouseX - elX) / 100);
+    let idxInParent = Math.max(Math.floor((mouseX - elX) / 100), 0);
     if(dragEl.parentNode != el || dragElNextIdx != idxInParent){
         if(idxInParent >= el.children.length){
             el.appendChild(dragEl);
