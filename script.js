@@ -76,6 +76,9 @@ function createListItem(imageUrl){
     imageDiv.ondragstart = function() {
         drag(event, imageDiv);
     }
+    imageDiv.ondragend = function() {
+        drop(event, imageDiv);
+    }
     const imageNode = document.createElement("img");
     imageNode.setAttribute("src", imageUrl);
     imageDiv.appendChild(imageNode)
