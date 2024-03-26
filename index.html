@@ -23,7 +23,7 @@
             <p>Some text in the Modal..</p>
             <input type="button" value="Add Row Above"/>
             <input type="button" value="Add Row Below"/>
-            <input type="button" value="Delete Row"/>
+            <input type="button" value="Delete Row" onclick="deleteRow()"/>
         </div>
     </div>
     <h1>Quick Tierlist Maker</h1>
@@ -34,7 +34,7 @@
             </td>
             <td class="row-items" ondragover="previewDrop(event, this)"></td>
             <td class="row-options">
-                <button onclick="openRowOptionsModal(1)">Options</button>
+                <button onclick="openRowOptionsModal(this)">Options</button>
             </td>
         </tr>
         <tr>
@@ -43,7 +43,7 @@
             </td>
             <td class="row-items" ondragover="previewDrop(event, this)"></td>
             <td class="row-options">
-                <button onclick="openRowOptionsModal(2)">Options</button>
+                <button onclick="openRowOptionsModal(this)">Options</button>
             </td>
         </tr>
         <tr>
@@ -52,7 +52,7 @@
             </td>
             <td class="row-items" ondragover="previewDrop(event, this)"></td>
             <td class="row-options">
-                <button onclick="openRowOptionsModal(1)">Options</button>
+                <button onclick="openRowOptionsModal(this)">Options</button>
             </td>
         </tr>
     </table>

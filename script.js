@@ -18,17 +18,19 @@ function autoGrow(element) {
 }
 
 /*
-Modal Functions
+Modal: Base Functions
 */
-function openCreateItemModal(){
-    theCreateItemModal.style.display = "block";
-}
-function openRowOptionsModal(rowId){
-    theRowOptionsModal.style.display = "block";
-}
+var selectedRowEl = null;
 function closeModal(){
     theCreateItemModal.style.display = "none";
     theRowOptionsModal.style.display = "none";
+    selectedRowEl = null;
+}
+/*
+Modal: Create List Item Functions
+*/
+function openCreateItemModal(){
+    theCreateItemModal.style.display = "block";
 }
 function uploadImage(){
     for (let file of fileUploadInput.files){
@@ -83,6 +85,17 @@ function createListItem(imageUrl){
     imageNode.setAttribute("src", imageUrl);
     imageDiv.appendChild(imageNode)
     unlistedListItems.appendChild(imageDiv);
+    closeModal();
+}
+/*
+Modal: Row Management Functions
+*/
+function openRowOptionsModal(el){
+    theRowOptionsModal.style.display = "block";
+    selectedRowEl = el.parentNode.parentNode;
+}
+function deleteRow(){
+    selectedRowEl.remove();
     closeModal();
 }
 
