@@ -20,7 +20,7 @@ function autoGrow(element) {
 /*
 Modal: Base Functions
 */
-var selectedRowEl = null;
+
 function closeModal(){
     theCreateItemModal.style.display = "none";
     theRowOptionsModal.style.display = "none";
@@ -90,9 +90,13 @@ function createListItem(imageUrl){
 /*
 Modal: Row Management Functions
 */
+var rowColorPicker = document.getElementById("row-color-picker");
+//var testContainer = document.querySelector('#test');
+var selectedRowEl = null;
 function openRowOptionsModal(el){
-    theRowOptionsModal.style.display = "block";
     selectedRowEl = el.parentNode.parentNode;
+    rowColorPicker.value = rgb2hex(selectedRowEl.querySelector('.row-label').style.backgroundColor);
+    theRowOptionsModal.style.display = "block";
 }
 function deleteRow(){
     selectedRowEl.remove();
@@ -156,3 +160,5 @@ createItemFromTextfield.addEventListener("keypress", function(event) {
         document.getElementById("create-item-from-text-button").click();
     }
 });
+// Function to convert rgb values to hex
+const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
