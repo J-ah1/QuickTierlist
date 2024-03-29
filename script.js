@@ -93,10 +93,53 @@ Modal: Row Management Functions
 var rowColorPicker = document.getElementById("row-color-picker");
 //var testContainer = document.querySelector('#test');
 var selectedRowEl = null;
+var tierlistTableBody = document.getElementById("tierlist-table-body");
 function openRowOptionsModal(el){
     selectedRowEl = el.parentNode.parentNode;
     rowColorPicker.value = rgb2hex(selectedRowEl.querySelector(".row-label").style.backgroundColor);
     theRowOptionsModal.style.display = "block";
+}
+function createRow(placeAbove){
+    const rowEl = document.createElement("tr");
+
+    const rowLabel = document.createElement("td");
+    rowLabel.setAttribute("class", "row-label");
+    rowLabel.setAttribute("style", "background-color: #ffffff");
+    rowLabel.ondrop = "return false;"
+    const rowLabelTextArea = document.createElement("textarea");
+    rowLabelTextArea.oninput = function() {
+        autoGrow(rowLabelTextArea);
+    };
+    rowLabelTextArea.value = "RowLabel";
+    rowLabel.appendChild(rowLabelTextArea);
+
+    const rowItems = document.createElement("td");
+    rowItems.setAttribute("class", "row-items");
+    rowItems.ondragover = function(){
+        previewDrop(event, rowItems);
+    };
+
+    const rowOptions = document.createElement("td");
+    rowOptions.setAttribute("class", "row-options");
+    const rowOptionsBtn = document.createElement("button");
+    rowOptionsBtn.onclick = function(){
+        openRowOptionsModal(rowOptionsBtn);
+    };
+    rowOptionsBtn.innerHTML = "Options";
+    rowOptions.appendChild(rowOptionsBtn);
+
+    rowEl.appendChild(rowLabel);
+    rowEl.appendChild(rowItems);
+    rowEl.appendChild(rowOptions);
+    console.log(tierlistTableBody);
+    console.log(selectedRowEl);
+    if(placeAbove){
+        tierlistTableBody.insertBefore(rowEl, selectedRowEl);
+    }else{
+        // nts: interesting "insertAfter" (even works on EOL)
+        tierlistTableBody.insertBefore(rowEl, selectedRowEl.nextSibling);
+    }
+    closeModal();
 }
 function deleteRow(){
     selectedRowEl.remove();

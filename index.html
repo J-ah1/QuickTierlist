@@ -21,41 +21,43 @@
         <div id="modal-content">
             <span id="modal-close-button" onclick="closeModal()">&times;</span>
             <p>Some text in the Modal..</p>
-            <input type="button" value="Add Row Above"/>
-            <input type="button" value="Add Row Below"/>
+            <input type="button" value="Add Row Above" onclick="createRow(placeAbove=true)"/>
+            <input type="button" value="Add Row Below" onclick="createRow(placeAbove=false)"/>
             <input type="button" value="Delete Row" onclick="deleteRow()"/>
             <input id="row-color-picker" type="color" value="#000000" onchange="updateColor(event)"/>
         </div>
     </div>
     <h1>Quick Tierlist Maker</h1>
     <table>
-        <tr>
-            <td class="row-label" style="background-color: #ff0000;" ondrop="return false;">
-                <textarea oninput="autoGrow(this)">A</textarea>
-            </td>
-            <td class="row-items" ondragover="previewDrop(event, this)"></td>
-            <td class="row-options">
-                <button onclick="openRowOptionsModal(this)">Options</button>
-            </td>
-        </tr>
-        <tr>
-            <td class="row-label" style="background-color: #ffd500;" ondrop="return false;">
-                <textarea oninput="autoGrow(this)">B</textarea>
-            </td>
-            <td class="row-items" ondragover="previewDrop(event, this)"></td>
-            <td class="row-options">
-                <button onclick="openRowOptionsModal(this)">Options</button>
-            </td>
-        </tr>
-        <tr>
-            <td class="row-label" style="background-color: #2fff00;" ondrop="return false;">
-                <textarea oninput="autoGrow(this)">C</textarea>
-            </td>
-            <td class="row-items" ondragover="previewDrop(event, this)"></td>
-            <td class="row-options">
-                <button onclick="openRowOptionsModal(this)">Options</button>
-            </td>
-        </tr>
+        <tbody id="tierlist-table-body">
+            <tr>
+                <td class="row-label" style="background-color: #ff0000;" ondrop="return false;">
+                    <textarea oninput="autoGrow(this)">A</textarea>
+                </td>
+                <td class="row-items" ondragover="previewDrop(event, this)"></td>
+                <td class="row-options">
+                    <button onclick="openRowOptionsModal(this)">Options</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="row-label" style="background-color: #ffd500;" ondrop="return false;">
+                    <textarea oninput="autoGrow(this)">B</textarea>
+                </td>
+                <td class="row-items" ondragover="previewDrop(event, this)"></td>
+                <td class="row-options">
+                    <button onclick="openRowOptionsModal(this)">Options</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="row-label" style="background-color: #2fff00;" ondrop="return false;">
+                    <textarea oninput="autoGrow(this)">C</textarea>
+                </td>
+                <td class="row-items" ondragover="previewDrop(event, this)"></td>
+                <td class="row-options">
+                    <button onclick="openRowOptionsModal(this)">Options</button>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <h2>items go below here</h2>
     <div id="unlisted-list-items" ondragover="previewDrop(event, this)">
