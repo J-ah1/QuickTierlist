@@ -213,3 +213,7 @@ const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice
 createListItem("images/leaf.jpg");
 createListItem("images/maple leaf.jpg");
 createListItem("images/pine leaf.jpg");
+selectedRowEl = document.getElementById("tierlist-table-body").children[0];
+createRow(false);
+selectedRowEl = document.getElementById("tierlist-table-body").children[0];
+createRow(false);
