@@ -209,3 +209,7 @@ createItemFromTextfield.addEventListener("keypress", function(event) {
 });
 // Function to convert rgb values to hex
 const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
+// Create starting tier list rows + items
+createListItem("images/leaf.jpg");
+createListItem("images/maple leaf.jpg");
+createListItem("images/pine leaf.jpg");
