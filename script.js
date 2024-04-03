@@ -91,7 +91,6 @@ function createListItem(imageUrl){
 Modal: Row Management Functions
 */
 var rowColorPicker = document.getElementById("row-color-picker");
-//var testContainer = document.querySelector('#test');
 var selectedRowEl = null;
 var tierlistTableBody = document.getElementById("tierlist-table-body");
 function openRowOptionsModal(el){
@@ -183,12 +182,16 @@ function drag(ev, el) {
 }
 function drop(ev, el) {
     ev.preventDefault();
-    dragEl.classList.remove("dragging");
-    dragEl = null;
+    if(dragEl != null){
+        dragEl.classList.remove("dragging");
+        dragEl = null;
+    }
 }
-function discardItem(ev) {
-    dragEl.remove();
-    dragEl = null;
+function discardItem() {
+    if(dragEl != null){
+        dragEl.remove();
+        dragEl = null;
+    }
 }
 
 /*
