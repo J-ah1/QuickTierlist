@@ -130,8 +130,6 @@ function createRow(placeAbove){
     rowEl.appendChild(rowLabel);
     rowEl.appendChild(rowItems);
     rowEl.appendChild(rowOptions);
-    console.log(tierlistTableBody);
-    console.log(selectedRowEl);
     if(placeAbove){
         tierlistTableBody.insertBefore(rowEl, selectedRowEl);
     }else{
