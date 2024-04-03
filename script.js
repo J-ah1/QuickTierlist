@@ -33,7 +33,7 @@ function openCreateItemModal(){
     theCreateItemModal.style.display = "block";
 }
 function uploadImage(){
-    for (let file of fileUploadInput.files){
+    for (const file of fileUploadInput.files){
         readImageFile(file);
     }
 }
@@ -162,9 +162,9 @@ var dragElNextIdx = 0;
 function previewDrop(ev, el){
     if(dragEl == null) return;
     ev.preventDefault();
-    let mouseX = ev.clientX;
-    let elX = el.getBoundingClientRect().x;
-    let idxInParent = Math.max(Math.floor((mouseX - elX) / 100), 0);
+    const mouseX = ev.clientX;
+    const elX = el.getBoundingClientRect().x;
+    const idxInParent = Math.max(Math.floor((mouseX - elX) / 100), 0);
     if(dragEl.parentNode != el || dragElNextIdx != idxInParent){
         if(idxInParent >= el.children.length){
             el.appendChild(dragEl);
