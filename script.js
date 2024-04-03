@@ -71,10 +71,10 @@ function createListItem(imageUrl){
         throw new Error("idk how but you've made an insurmountable amount of items. restart the page");
     }
     const imageDiv = document.createElement("div");
-    imageDiv.setAttribute("class", "list-item");
-    imageDiv.setAttribute("id", "item-" + nextItemId.toString());
+    imageDiv.classList.add("list-item");
+    imageDiv.id = "item-" + nextItemId.toString();
     nextItemId += 1;
-    imageDiv.setAttribute("draggable", true);
+    imageDiv.draggable = true;
     imageDiv.ondragstart = function() {
         drag(event, imageDiv);
     }
@@ -82,7 +82,7 @@ function createListItem(imageUrl){
         drop(event, imageDiv);
     }
     const imageNode = document.createElement("img");
-    imageNode.setAttribute("src", imageUrl);
+    imageNode.src = imageUrl;
     imageDiv.appendChild(imageNode);
     unlistedListItems.appendChild(imageDiv);
     closeModal();
@@ -102,8 +102,8 @@ function createRow(placeAbove){
     const rowEl = document.createElement("tr");
 
     const rowLabel = document.createElement("td");
-    rowLabel.setAttribute("class", "row-label");
-    rowLabel.setAttribute("style", "background-color: #ffffff");
+    rowLabel.classList.add("row-label");
+    rowLabel.style.backgroundColor = "#ffffff";
     rowLabel.ondrop = "return false;";
     const rowLabelTextArea = document.createElement("textarea");
     rowLabelTextArea.oninput = function() {
@@ -113,13 +113,13 @@ function createRow(placeAbove){
     rowLabel.appendChild(rowLabelTextArea);
 
     const rowItems = document.createElement("td");
-    rowItems.setAttribute("class", "row-items");
+    rowItems.classList.add("row-items");
     rowItems.ondragover = function(){
         previewDrop(event, rowItems);
     };
 
     const rowOptions = document.createElement("td");
-    rowOptions.setAttribute("class", "row-options");
+    rowOptions.classList.add("row-options");
     const rowOptionsBtn = document.createElement("button");
     rowOptionsBtn.onclick = function(){
         openRowOptionsModal(rowOptionsBtn);
