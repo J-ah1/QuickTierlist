@@ -5,7 +5,7 @@ var theCreateItemModal = document.getElementById("create-item-modal");
 var theRowOptionsModal = document.getElementById("row-options-modal");
 var fileUploadInput = document.getElementById("file-uploader");
 var createItemFromTextfield = document.getElementById("create-item-from-text-field");
-var unlistedListItems = document.getElementById("unlisted-list-items")
+var unlistedListItems = document.getElementById("unlisted-list-items");
 var nextItemId = 1; // NTS: Does NOT correlate to num of items
 
 /*
@@ -83,7 +83,7 @@ function createListItem(imageUrl){
     }
     const imageNode = document.createElement("img");
     imageNode.setAttribute("src", imageUrl);
-    imageDiv.appendChild(imageNode)
+    imageDiv.appendChild(imageNode);
     unlistedListItems.appendChild(imageDiv);
     closeModal();
 }
@@ -105,7 +105,7 @@ function createRow(placeAbove){
     const rowLabel = document.createElement("td");
     rowLabel.setAttribute("class", "row-label");
     rowLabel.setAttribute("style", "background-color: #ffffff");
-    rowLabel.ondrop = "return false;"
+    rowLabel.ondrop = "return false;";
     const rowLabelTextArea = document.createElement("textarea");
     rowLabelTextArea.oninput = function() {
         autoGrow(rowLabelTextArea);
@@ -208,7 +208,7 @@ createItemFromTextfield.addEventListener("keypress", function(event) {
     }
 });
 // Function to convert rgb values to hex
-const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
+const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`;
 // Create starting tier list rows + items
 createListItem("images/leaf.jpg");
 createListItem("images/maple leaf.jpg");
