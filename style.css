@@ -126,6 +126,7 @@ List items relevant CSS
     height: var(--list-item-height);
     width: 100px;
     background-color: black;
+    cursor: pointer;
 }
 .dragging{
     opacity: 0.6;
