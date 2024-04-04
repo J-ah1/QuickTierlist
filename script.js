@@ -100,8 +100,10 @@ function createRow(placeAbove){
     const rowLabel = document.createElement("td");
     rowLabel.classList.add("row-label");
     rowLabel.style.backgroundColor = "#ffffff";
-    rowLabel.addEventListener("drop", function(){ return false; });
     const rowLabelTextArea = document.createElement("textarea");
+    rowLabelTextArea.addEventListener("dragover", function(event){
+        event.preventDefault();
+    });
     rowLabelTextArea.addEventListener("input", function(){ autoGrow(rowLabelTextArea); });
     rowLabelTextArea.value = "RowLabel";
     rowLabel.appendChild(rowLabelTextArea);
