@@ -75,12 +75,8 @@ function createListItem(imageUrl){
     imageDiv.id = "item-" + nextItemId.toString();
     nextItemId += 1;
     imageDiv.draggable = true;
-    imageDiv.ondragstart = function() {
-        drag(event, imageDiv);
-    }
-    imageDiv.ondragend = function() {
-        drop(event, imageDiv);
-    }
+    imageDiv.addEventListener("dragstart", function() { drag(event, imageDiv); });
+    imageDiv.addEventListener("dragend", function() { drop(event, imageDiv); });
     const imageNode = document.createElement("img");
     imageNode.src = imageUrl;
     imageDiv.appendChild(imageNode);
@@ -104,26 +100,19 @@ function createRow(placeAbove){
     const rowLabel = document.createElement("td");
     rowLabel.classList.add("row-label");
     rowLabel.style.backgroundColor = "#ffffff";
-    rowLabel.ondrop = "return false;";
+    rowLabel.addEventListener("drop", function(){ return false; });
     const rowLabelTextArea = document.createElement("textarea");
-    rowLabelTextArea.oninput = function() {
-        autoGrow(rowLabelTextArea);
-    };
+    rowLabelTextArea.addEventListener("input", function(){ autoGrow(rowLabelTextArea); });
     rowLabelTextArea.value = "RowLabel";
     rowLabel.appendChild(rowLabelTextArea);
 
     const rowItems = document.createElement("td");
     rowItems.classList.add("row-items");
-    rowItems.ondragover = function(){
-        previewDrop(event, rowItems);
-    };
-
+    rowItems.addEventListener("dragover", function(){ previewDrop(event, rowItems); });
     const rowOptions = document.createElement("td");
     rowOptions.classList.add("row-options");
     const rowOptionsBtn = document.createElement("button");
-    rowOptionsBtn.onclick = function(){
-        openRowOptionsModal(rowOptionsBtn);
-    };
+    rowOptionsBtn.addEventListener("click", function() { openRowOptionsModal(rowOptionsBtn); });
     rowOptionsBtn.innerHTML = "Options";
     rowOptions.appendChild(rowOptionsBtn);
 
@@ -196,11 +185,11 @@ function discardItem() {
 Doc Setup Functions
 */
 // Clicking outside an open modal, closes the modal
-window.onclick = function(event){
+window.addEventListener("click", function(event){
     if(event.target == theCreateItemModal || event.target == theRowOptionsModal){
         closeModal();
     }
-}
+});
 // Pressing enter on createItemFromTextfield triggers "submit" button onclick()
 createItemFromTextfield.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
