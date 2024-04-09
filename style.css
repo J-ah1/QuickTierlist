@@ -23,26 +23,28 @@ table {
 }
 table, tr, td {
     height: 100%;
-    border: 1px solid black;
     border-collapse: collapse;
 }
 tr {
-    height: var(--list-item-height);
+    /* NTS: The row height should be list-item-height + row border*/
+    height: calc(var(--list-item-height) + 2px);
+    border: 2px solid black;
 }
 td {
     padding: 30px;
 }
 
 .row-label {
+    overflow: clip;
     padding: 10px;
     background-color: rgb(255, 255, 255);
+    border-right: 2px solid black;
 }
 .row-label > textarea {
     resize: none;
     overflow: hidden;
     border: none;
     min-height: 10px;
-    max-height: 300px;
     text-align: center;
     background-color: inherit;
 }
@@ -52,6 +54,7 @@ td {
     height: 100%;
     padding: 0;
     background-color: rgb(68, 68, 68);
+    border-right: 2px solid black;
 }
 .row-options {
     background-color: black;
