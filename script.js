@@ -129,6 +129,13 @@ function createRow(placeAbove){
     }
     closeModal();
 }
+function moveRow(moveUp){
+    if(moveUp && selectedRowEl.previousElementSibling != null){
+        tierlistTableBody.insertBefore(selectedRowEl, selectedRowEl.previousElementSibling);
+    }else if(!moveUp && selectedRowEl.nextElementSibling != null){
+        tierlistTableBody.insertBefore(selectedRowEl.nextElementSibling , selectedRowEl);
+    }
+}
 function deleteRow(){
     selectedRowEl.remove();
     closeModal();
