@@ -7,6 +7,7 @@ var fileUploadInput = document.getElementById("file-uploader");
 var createItemFromTextfield = document.getElementById("create-item-from-text-field");
 var unlistedListItems = document.getElementById("unlisted-list-items");
 var nextItemId = 1; // NTS: Does NOT correlate to num of items
+var listItemHeight = parseInt(getComputedStyle(document.body).getPropertyValue("--list-item-height"));
 
 /*
 Tier List Functions
@@ -159,7 +160,7 @@ function previewDrop(ev, el){
     ev.preventDefault();
     const mouseX = ev.clientX;
     const elX = el.getBoundingClientRect().x;
-    const idxInParent = Math.max(Math.floor((mouseX - elX) / 100), 0);
+    const idxInParent = Math.max(Math.floor((mouseX - elX + (listItemHeight / 2)) / listItemHeight), 0);
     if(dragEl.parentNode != el || dragElNextIdx != idxInParent){
         if(idxInParent >= el.children.length){
             el.appendChild(dragEl);
