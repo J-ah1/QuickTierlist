@@ -65,11 +65,17 @@ td {
     flex-direction: column;
     align-items: center;
 }
-.move-row-up-btn {
-    color: white;
-}
+.move-row-up-btn,
 .move-row-down-btn {
     color: white;
+}
+.move-row-up-btn:hover,
+.move-row-down-btn:hover,
+.move-row-up-btn:focus,
+.move-row-down-btn:focus {
+    cursor: pointer;
+    text-decoration: none;
+    color:#888;
 }
 
 /*
