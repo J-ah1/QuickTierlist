@@ -38,7 +38,11 @@
                 </td>
                 <td class="row-items" ondragover="previewDrop(event, this)"></td>
                 <td class="row-options">
-                    <button onclick="openRowOptionsModal(this)">Options</button>
+                    <div class="row-options-cont">
+                        <span class="move-row-up-btn" onclick="">&and;</span>
+                        <button onclick="openRowOptionsModal(this)">Options</button>
+                        <span class="move-row-down-btn" onclick="">&or;</span>
+                    </div>
                 </td>
             </tr>
         </tbody>

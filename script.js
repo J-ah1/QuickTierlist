@@ -112,12 +112,27 @@ function createRow(placeAbove){
     const rowItems = document.createElement("td");
     rowItems.classList.add("row-items");
     rowItems.addEventListener("dragover", function(){ previewDrop(event, rowItems); });
+
     const rowOptions = document.createElement("td");
     rowOptions.classList.add("row-options");
+    const rowOptionsDiv = document.createElement("div");
+    rowOptionsDiv.classList.add("row-options-cont");
+
+    const moveRowUpBtn = document.createElement("span");
+    moveRowUpBtn.classList.add("move-row-up-btn");
+    moveRowUpBtn.innerHTML = "&and;";
+    moveRowUpBtn.addEventListener("click", function() { return;});
     const rowOptionsBtn = document.createElement("button");
     rowOptionsBtn.addEventListener("click", function() { openRowOptionsModal(rowOptionsBtn); });
     rowOptionsBtn.innerHTML = "Options";
-    rowOptions.appendChild(rowOptionsBtn);
+    const moveRowDownBtn = document.createElement("span");
+    moveRowDownBtn.classList.add("move-row-down-btn");
+    moveRowDownBtn.innerHTML = "&or;";
+    moveRowDownBtn.addEventListener("click", function() { return;});
+    rowOptionsDiv.appendChild(moveRowUpBtn);
+    rowOptionsDiv.appendChild(rowOptionsBtn);
+    rowOptionsDiv.appendChild(moveRowDownBtn);
+    rowOptions.appendChild(rowOptionsDiv);
 
     rowEl.appendChild(rowLabel);
     rowEl.appendChild(rowItems);

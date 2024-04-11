@@ -57,7 +57,19 @@ td {
     border-right: 2px solid black;
 }
 .row-options {
+    padding: 20px;
     background-color: black;
+}
+.row-options-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.move-row-up-btn {
+    color: white;
+}
+.move-row-down-btn {
+    color: white;
 }
 
 /*
