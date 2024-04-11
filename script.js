@@ -91,7 +91,8 @@ var rowColorPicker = document.getElementById("row-color-picker");
 var selectedRowEl = null;
 var tierlistTableBody = document.getElementById("tierlist-table-body");
 function openRowOptionsModal(el){
-    selectedRowEl = el.parentNode.parentNode;
+    // NTS: Have the options button itself pass the parent^3
+    selectedRowEl = el.parentNode.parentNode.parentNode;
     rowColorPicker.value = rgb2hex(selectedRowEl.querySelector(".row-label").style.backgroundColor);
     theRowOptionsModal.style.display = "block";
 }
@@ -121,14 +122,14 @@ function createRow(placeAbove){
     const moveRowUpBtn = document.createElement("span");
     moveRowUpBtn.classList.add("move-row-up-btn");
     moveRowUpBtn.innerHTML = "&and;";
-    moveRowUpBtn.addEventListener("click", function() { return;});
+    moveRowUpBtn.addEventListener("click", function() { moveRow(moveUp=true, rowEl); });
     const rowOptionsBtn = document.createElement("button");
     rowOptionsBtn.addEventListener("click", function() { openRowOptionsModal(rowOptionsBtn); });
     rowOptionsBtn.innerHTML = "Options";
     const moveRowDownBtn = document.createElement("span");
     moveRowDownBtn.classList.add("move-row-down-btn");
     moveRowDownBtn.innerHTML = "&or;";
-    moveRowDownBtn.addEventListener("click", function() { return;});
+    moveRowDownBtn.addEventListener("click", function() { moveRow(moveUp=false, rowEl); });
     rowOptionsDiv.appendChild(moveRowUpBtn);
     rowOptionsDiv.appendChild(rowOptionsBtn);
     rowOptionsDiv.appendChild(moveRowDownBtn);
@@ -145,13 +146,6 @@ function createRow(placeAbove){
     }
     closeModal();
 }
-function moveRow(moveUp){
-    if(moveUp && selectedRowEl.previousElementSibling != null){
-        tierlistTableBody.insertBefore(selectedRowEl, selectedRowEl.previousElementSibling);
-    }else if(!moveUp && selectedRowEl.nextElementSibling != null){
-        tierlistTableBody.insertBefore(selectedRowEl.nextElementSibling , selectedRowEl);
-    }
-}
 function deleteRow(){
     selectedRowEl.remove();
     closeModal();
@@ -159,6 +153,16 @@ function deleteRow(){
 function updateColor(ev){
     if(selectedRowEl == null) return;
     selectedRowEl.querySelector(".row-label").style.backgroundColor = ev.target.value;
+}
+/*
+Row Management Cont: Technically it's in-row, not in-modal
+*/
+function moveRow(moveUp, rowEl){
+    if(moveUp && rowEl.previousElementSibling != null){
+        tierlistTableBody.insertBefore(rowEl, rowEl.previousElementSibling);
+    }else if(!moveUp && rowEl.nextElementSibling != null){
+        tierlistTableBody.insertBefore(rowEl.nextElementSibling , rowEl);
+    }
 }
 
 

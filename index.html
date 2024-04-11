@@ -23,8 +23,6 @@
             <p>Some text in the Modal..</p>
             <input type="button" value="Add Row Above" onclick="createRow(placeAbove=true)"/>
             <input type="button" value="Add Row Below" onclick="createRow(placeAbove=false)"/>
-            <input type="button" value="Move Row Up" onclick="moveRow(moveUp=true)"/>
-            <input type="button" value="Move Row Down" onclick="moveRow(moveUp=false)"/>
             <input type="button" value="Delete Row" onclick="deleteRow()"/>
             <input id="row-color-picker" type="color" value="#000000" onchange="updateColor(event)"/>
         </div>
@@ -39,9 +37,9 @@
                 <td class="row-items" ondragover="previewDrop(event, this)"></td>
                 <td class="row-options">
                     <div class="row-options-cont">
-                        <span class="move-row-up-btn" onclick="">&and;</span>
+                        <span class="move-row-up-btn" onclick="moveRow(moveUp=true,this.parentElement.parentElement.parentElement)">&and;</span>
                         <button onclick="openRowOptionsModal(this)">Options</button>
-                        <span class="move-row-down-btn" onclick="">&or;</span>
+                        <span class="move-row-down-btn" onclick="moveRow(moveUp=false,this.parentElement.parentElement.parentElement)">&or;</span>
                     </div>
                 </td>
             </tr>
