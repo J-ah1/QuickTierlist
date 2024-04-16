@@ -129,20 +129,30 @@ Modal relevant CSS
 /*
 List items relevant CSS
 */
-
+#items-section{
+    margin: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 #unlisted-list-items{
-    min-height: var(--list-item-height);
+    min-height: calc(var(--list-item-height)*2);
+    width: 60%;
     display: flex;
     background-color: rgb(68, 68, 68);
 }
-#garbage-section{
-    font-size: 24px;
-    height: 100px;
-    width: 300px;
-    background-color: #ce8c55;
+#item-manage-section{
+    display: inline-block;
 }
 #add-items-section{
-    text-align: center;
+    height: var(--list-item-height);
+    width: var(--list-item-height);
+}
+#garbage-section{
+    font-size: 18px;
+    height: var(--list-item-height);
+    width: var(--list-item-height);
+    background-color: #ce8c55;
 }
 .list-item{
     height: var(--list-item-height);
