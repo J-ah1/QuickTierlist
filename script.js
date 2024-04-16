@@ -65,6 +65,7 @@ function createImageFromText(){
     tempContext.font = "48px serif";
     tempContext.textBaseline = 'middle';
     tempContext.fillText(canvasText, 0, tempCanvas.height/2, 100);
+    createItemFromTextfield.value = "";
     createListItem(tempContext.canvas.toDataURL());
 }
 function createListItem(imageUrl){

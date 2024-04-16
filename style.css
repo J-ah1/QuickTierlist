@@ -106,11 +106,12 @@ Modal relevant CSS
     background-color: rgba(0,0,0,0.4);
 }
 #modal-content {
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
     background-color: #fefefe;
+    text-align: center;
 }
 #modal-close-button {
     float: right;
