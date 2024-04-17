@@ -113,14 +113,14 @@ Modal relevant CSS
     background-color: #fefefe;
     text-align: center;
 }
-#modal-close-button {
+.modal-close-button {
     float: right;
     font-size: 28px;
     font-weight: bold;
     color: #aaa;
 }
-#modal-close-button:hover,
-#modal-close-button:focus {
+.modal-close-button:hover,
+.modal-close-button:focus {
     cursor: pointer;
     text-decoration: none;
     color: black;

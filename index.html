@@ -10,7 +10,7 @@
 <body>
     <div id="create-item-modal">
         <div id="modal-content">
-            <span id="modal-close-button" onclick="closeModal()">&times;</span>
+            <span class="modal-close-button" onclick="closeModal()">&times;</span>
             <h3>Create Item</h3>
             <input id="file-uploader" type="file" onchange="uploadImage()" accept="image/*" multiple/>
             <input type="text" id="create-item-from-text-field"/>
@@ -19,7 +19,7 @@
     </div>
     <div id="row-options-modal">
         <div id="modal-content">
-            <span id="modal-close-button" onclick="closeModal()">&times;</span>
+            <span class="modal-close-button" onclick="closeModal()">&times;</span>
             <h3>Manage Row</h3>
             <input type="button" value="Add Row Above" onclick="createRow(placeAbove=true)"/>
             <input type="button" value="Add Row Below" onclick="createRow(placeAbove=false)"/>
