@@ -145,8 +145,18 @@ List items relevant CSS
     display: inline-block;
 }
 #add-items-section{
-    height: var(--list-item-height);
-    width: var(--list-item-height);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+    height: calc(var(--list-item-height) - 20px);
+    width: calc(var(--list-item-height) - 20px);
+    background-color: white;
+}
+#add-items-section:hover,
+#add-items-section:focus {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: rgb(225, 225, 225);
 }
 #garbage-section{
     font-size: 18px;
