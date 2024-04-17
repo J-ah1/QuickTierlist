@@ -6,6 +6,8 @@ var theRowOptionsModal = document.getElementById("row-options-modal");
 var fileUploadInput = document.getElementById("file-uploader");
 var createItemFromTextfield = document.getElementById("create-item-from-text-field");
 var unlistedListItems = document.getElementById("unlisted-list-items");
+var openTrashIcon = document.getElementById("open-trash-icon");
+var closedTrashIcon = document.getElementById("closed-trash-icon");
 var nextItemId = 1; // NTS: Does NOT correlate to num of items
 var listItemHeight = parseInt(getComputedStyle(document.body).getPropertyValue("--list-item-height"));
 
@@ -204,11 +206,24 @@ function drop(ev, el) {
         dragEl = null;
     }
 }
-function discardItem() {
+function openTrash(ev){
+    ev.preventDefault();
+    if (ev.currentTarget.contains(ev.relatedTarget)) return;
+    closedTrashIcon.style.display = "none";
+    openTrashIcon.style.display = "block";
+}
+function closeTrash(ev){
+    ev.preventDefault();
+    if (ev.currentTarget.contains(ev.relatedTarget)) return;
+    closedTrashIcon.style.display = "block";
+    openTrashIcon.style.display = "none";
+}
+function discardItem(ev) {
     if(dragEl != null){
         dragEl.remove();
         dragEl = null;
     }
+    closeTrash(ev);
 }
 
 /*

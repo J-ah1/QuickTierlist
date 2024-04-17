@@ -159,10 +159,8 @@ List items relevant CSS
     background-color: rgb(225, 225, 225);
 }
 #garbage-section{
-    font-size: 18px;
     height: var(--list-item-height);
     width: var(--list-item-height);
-    background-color: #ce8c55;
 }
 .list-item{
     height: var(--list-item-height);
