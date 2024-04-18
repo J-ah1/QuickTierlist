@@ -155,7 +155,9 @@ function createRow(placeAbove){
     closeModal();
 }
 function deleteRow(){
-    selectedRowEl.remove();
+    if (tierlistTableBody.children.length > 1){
+        selectedRowEl.remove();
+    }
     closeModal();
 }
 function updateColor(ev){
