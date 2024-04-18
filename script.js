@@ -18,6 +18,10 @@ function autoGrow(element) {
     element.style.height = "5px";
     element.style.height = (element.scrollHeight) + "px";
     // Future note: should update every (var(--list-item-height)) instead
+    // Future note2: name/change this according to the autoGrowRow functions
+}
+function autoResizeRow(){
+
 }
 
 /*
@@ -181,8 +185,15 @@ function previewDrop(ev, el){
     if(dragEl == null) return;
     ev.preventDefault();
     const mouseX = ev.clientX;
+    const mouseY = ev.clientY;
+    // nts: replace mouseX/Y with the calls instead (we only use them once each!)
     const elX = el.getBoundingClientRect().x;
-    const idxInParent = Math.max(Math.floor((mouseX - elX + (listItemHeight / 2)) / listItemHeight), 0);
+    const elY = el.getBoundingClientRect().y;
+    const maxChildrenPerRow = Math.floor(el.getBoundingClientRect().width / listItemHeight);
+    let idxInParent = Math.floor((mouseY - elY) / listItemHeight) * maxChildrenPerRow;
+    idxInParent += Math.floor((mouseX - elX + (listItemHeight / 2)) / listItemHeight);
+    idxInParent = Math.max(idxInParent, 0);
+    console.log(idxInParent);
     if(dragEl.parentNode != el || dragElNextIdx != idxInParent){
         if(idxInParent >= el.children.length){
             el.appendChild(dragEl);
