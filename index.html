@@ -27,12 +27,12 @@
             <input id="row-color-picker" type="color" value="#000000" onchange="updateColor(event)"/>
         </div>
     </div>
-    <h1 contenteditable="true">My Quick Tier List</h1>
+    <h1 contenteditable="true" spellcheck="false">My Quick Tier List</h1>
     <table>
         <tbody id="tierlist-table-body">
             <tr>
                 <td class="row-label" style="background-color: #ff0000;" >
-                    <textarea ondrop="return false;" oninput="autoGrow(this)">A</textarea>
+                    <textarea ondrop="return false;" oninput="autoGrow(this)" spellcheck="false">A</textarea>
                 </td>
                 <td class="row-items" ondragover="previewDrop(event, this)"></td>
                 <td class="row-options">

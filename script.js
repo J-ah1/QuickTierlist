@@ -114,6 +114,7 @@ function createRow(placeAbove){
         event.preventDefault();
     });
     rowLabelTextArea.addEventListener("input", function(){ autoGrow(rowLabelTextArea); });
+    rowLabelTextArea.spellcheck = false;
     rowLabelTextArea.value = "RowLabel";
     rowLabel.appendChild(rowLabelTextArea);
 
