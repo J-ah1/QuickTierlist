@@ -9,6 +9,8 @@ body {
 }
 h1 {
     text-align: center;
+    width: calc(var(--list-item-height) * 8);
+    margin: 24px auto;
 }
 img {
     max-width: 100%;
