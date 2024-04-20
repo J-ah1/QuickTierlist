@@ -5,6 +5,7 @@ var theCreateItemModal = document.getElementById("create-item-modal");
 var theRowOptionsModal = document.getElementById("row-options-modal");
 var fileUploadInput = document.getElementById("file-uploader");
 var createItemFromTextfield = document.getElementById("create-item-from-text-field");
+var keepItemModalOpenCB = document.getElementById("keep-items-modal-open-cb");
 var unlistedListItems = document.getElementById("unlisted-list-items");
 var openTrashIcon = document.getElementById("open-trash-icon");
 var closedTrashIcon = document.getElementById("closed-trash-icon");
@@ -89,7 +90,7 @@ function createListItem(imageUrl){
     imageNode.src = imageUrl;
     imageDiv.appendChild(imageNode);
     unlistedListItems.appendChild(imageDiv);
-    closeModal();
+    if(!keepItemModalOpenCB.checked) closeModal();
 }
 /*
 Modal: Row Management Functions
