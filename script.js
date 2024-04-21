@@ -59,8 +59,15 @@ function readImageFile(file){
         createListItem(fileReaderEvent.target.result);
     }
 }
-// Create a list-item image from the "createItemFromTextfield" value
-function createImageFromText(){
+// Pass create item text to createImageFromText()
+function submitListItemText(){
+    const seperateTexts  = createItemFromTextfield.value.split(",");
+    for(let text of seperateTexts){
+        createImageFromText(text.trim());
+    }
+}
+// Create a list-item image from text
+function createImageFromText(text){
     const tempCanvas = document.createElement("canvas");
     const tempContext = tempCanvas.getContext("2d");
     tempCanvas.width = listItemHeight;
@@ -68,7 +75,7 @@ function createImageFromText(){
     tempContext.fillStyle = "white";
     tempContext.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
 
-    const canvasText = createItemFromTextfield.value;
+    const canvasText = text;
     tempContext.fillStyle = "black";
     const fontHeight = 24;
     tempContext.font = fontHeight.toString() + "px monospace";
