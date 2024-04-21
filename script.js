@@ -61,17 +61,42 @@ function readImageFile(file){
 }
 // Create a list-item image from the "createItemFromTextfield" value
 function createImageFromText(){
-    const canvasText = createItemFromTextfield.value;
     const tempCanvas = document.createElement("canvas");
     const tempContext = tempCanvas.getContext("2d");
-    tempCanvas.width = 100;
-    tempCanvas.height = 100;
+    tempCanvas.width = listItemHeight;
+    tempCanvas.height = listItemHeight;
     tempContext.fillStyle = "white";
     tempContext.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+    const canvasText = createItemFromTextfield.value;
     tempContext.fillStyle = "black";
-    tempContext.font = "48px serif";
-    tempContext.textBaseline = 'middle';
-    tempContext.fillText(canvasText, 0, tempCanvas.height/2, 100);
+    const fontHeight = 24;
+    tempContext.font = fontHeight.toString() + "px monospace";
+    tempContext.textAlign = "center";
+    tempContext.textBaseline = "middle";
+
+    const words = canvasText.split(" ");
+    let lines = [];
+    let currentLine = words[0];
+    for (let i = 1; i < words.length; i++) {
+        let word = words[i];
+        let wordWidth = tempContext.measureText(currentLine + " " + word).width;
+        if (wordWidth < tempCanvas.width) {
+            currentLine += " " + word;
+        } else {
+            lines.push(currentLine);
+            currentLine = word;
+        }
+    }
+    lines.push(currentLine);
+
+    // nts: there's DEFINITELY a HEIGHT LIMIT (tempCanvas.height/fontHeight), but its just funny for now lol
+    let currLineHeight = tempCanvas.height/2 - (lines.length-1)*fontHeight/2;
+    for (let line of lines){
+        tempContext.fillText(line, tempCanvas.width/2, currLineHeight, tempCanvas.width);
+        currLineHeight += fontHeight;
+    }
+
     createItemFromTextfield.value = "";
     createListItem(tempContext.canvas.toDataURL());
 }
