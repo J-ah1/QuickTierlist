@@ -299,11 +299,31 @@ const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice
 createListItem("images/leaf.jpg");
 createListItem("images/maple leaf.jpg");
 createListItem("images/pine leaf.jpg");
-const initalRow = document.getElementById("tierlist-table-body").children[0];
-selectedRowEl = initalRow;
-createRow(false);
-selectedRowEl = initalRow;
-createRow(false);
-selectedRowEl = initalRow;
-createRow(false);
-initalRow.remove();
+// Bit of a mess here
+let lastCreatedRow = document.getElementById("tierlist-table-body").children[0];
+const createFirstRow = async() => {
+    selectedRowEl = lastCreatedRow;
+    await createRow(false);
+    lastCreatedRow.remove();
+    lastCreatedRow = document.getElementById("tierlist-table-body").children[0];
+    lastCreatedRow.getElementsByClassName("row-label")[0].style.backgroundColor = "#ff0000";
+    lastCreatedRow.querySelectorAll("textarea")[0].value = "A";
+};
+const createSecondRow = async() => {
+    await createFirstRow();
+    selectedRowEl = lastCreatedRow;
+    await createRow(false);
+    lastCreatedRow = document.getElementById("tierlist-table-body").children[1];
+    lastCreatedRow.getElementsByClassName("row-label")[0].style.backgroundColor = "#ff8000";
+    lastCreatedRow.querySelectorAll("textarea")[0].value = "B";
+};
+const createThirdRow = async() => {
+    await createSecondRow();
+    selectedRowEl = lastCreatedRow;
+    await createRow(false);
+    lastCreatedRow = document.getElementById("tierlist-table-body").children[2];
+    lastCreatedRow.getElementsByClassName("row-label")[0].style.backgroundColor = "#ffff00";
+    lastCreatedRow.querySelectorAll("textarea")[0].value = "C";
+};
+createThirdRow();
+
