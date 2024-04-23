@@ -159,21 +159,25 @@ function createRow(placeAbove){
     rowOptions.classList.add("row-options");
     const rowOptionsDiv = document.createElement("div");
     rowOptionsDiv.classList.add("row-options-cont");
-
-    const moveRowUpBtn = document.createElement("span");
+    
+    const rowSettingsBtn = document.createElement("div");
+    rowSettingsBtn.addEventListener("click", function() { openRowOptionsModal(rowSettingsBtn); });
+    rowSettingsBtn.classList.add("row-settings-btn");
+    rowSettingsBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings-filled" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.647 4.081a.724 .724 0 0 0 1.08 .448c2.439 -1.485 5.23 1.305 3.745 3.744a.724 .724 0 0 0 .447 1.08c2.775 .673 2.775 4.62 0 5.294a.724 .724 0 0 0 -.448 1.08c1.485 2.439 -1.305 5.23 -3.744 3.745a.724 .724 0 0 0 -1.08 .447c-.673 2.775 -4.62 2.775 -5.294 0a.724 .724 0 0 0 -1.08 -.448c-2.439 1.485 -5.23 -1.305 -3.745 -3.744a.724 .724 0 0 0 -.447 -1.08c-2.775 -.673 -2.775 -4.62 0 -5.294a.724 .724 0 0 0 .448 -1.08c-1.485 -2.439 1.305 -5.23 3.744 -3.745a.722 .722 0 0 0 1.08 -.447c.673 -2.775 4.62 -2.775 5.294 0zm-2.647 4.919a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" stroke-width="0" fill="currentColor" /></svg>';
+    
+    const moveRowButtonsDiv = document.createElement("div");
+    const moveRowUpBtn = document.createElement("div");
     moveRowUpBtn.classList.add("move-row-up-btn");
-    moveRowUpBtn.innerHTML = "&and;";
+    moveRowUpBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-big-up-filled" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z" stroke-width="0" fill="currentColor" /></svg>';
     moveRowUpBtn.addEventListener("click", function() { moveRow(moveUp=true, rowEl); });
-    const rowOptionsBtn = document.createElement("button");
-    rowOptionsBtn.addEventListener("click", function() { openRowOptionsModal(rowOptionsBtn); });
-    rowOptionsBtn.innerHTML = "Options";
-    const moveRowDownBtn = document.createElement("span");
+    const moveRowDownBtn = document.createElement("div");
     moveRowDownBtn.classList.add("move-row-down-btn");
-    moveRowDownBtn.innerHTML = "&or;";
+    moveRowDownBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-big-down-filled" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 2l-.15 .005a2 2 0 0 0 -1.85 1.995v6.999l-2.586 .001a2 2 0 0 0 -1.414 3.414l6.586 6.586a2 2 0 0 0 2.828 0l6.586 -6.586a2 2 0 0 0 .434 -2.18l-.068 -.145a2 2 0 0 0 -1.78 -1.089l-2.586 -.001v-6.999a2 2 0 0 0 -2 -2h-4z" stroke-width="0" fill="currentColor" /></svg>';
     moveRowDownBtn.addEventListener("click", function() { moveRow(moveUp=false, rowEl); });
-    rowOptionsDiv.appendChild(moveRowUpBtn);
-    rowOptionsDiv.appendChild(rowOptionsBtn);
-    rowOptionsDiv.appendChild(moveRowDownBtn);
+    rowOptionsDiv.appendChild(rowSettingsBtn);
+    moveRowButtonsDiv.appendChild(moveRowUpBtn);
+    moveRowButtonsDiv.appendChild(moveRowDownBtn);
+    rowOptionsDiv.appendChild(moveRowButtonsDiv);
     rowOptions.appendChild(rowOptionsDiv);
 
     rowEl.appendChild(rowLabel);
