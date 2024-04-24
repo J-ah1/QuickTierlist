@@ -233,7 +233,6 @@ function previewDrop(ev, el){
     let idxInParent = Math.floor((mouseY - elY) / listItemHeight) * maxChildrenPerRow;
     idxInParent += Math.floor((mouseX - elX + (listItemHeight / 2)) / listItemHeight);
     idxInParent = Math.max(idxInParent, 0);
-    console.log(idxInParent);
     if(dragEl.parentNode != el || dragElNextIdx != idxInParent){
         if(idxInParent >= el.children.length){
             el.appendChild(dragEl);
@@ -295,6 +294,16 @@ createItemFromTextfield.addEventListener("keypress", function(event) {
 });
 // Function to convert rgb values to hex
 const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`;
+// Pasting images onto page produces list item
+document.onpaste = function(event){
+    const items = (event.clipboardData || event.originalEvent.clipboardData).items;
+    for (const item of items) {
+        if (item.kind === 'file') {
+            const blob = item.getAsFile();
+            readImageFile(blob);
+        }
+    }
+}
 // Create starting tier list rows + items
 createListItem("images/leaf.jpg");
 createListItem("images/maple leaf.jpg");
